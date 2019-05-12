@@ -19,6 +19,7 @@ pipeline {
         }
         stage('build') {
             steps {
+                sh 'npm run build'
                 sh 'npm run deploy'
                 sh 'aws cloudfront create-invalidation --invalidation-batch file://invbatch.json --distribution-id E1SXH4V0NW360V'
             }

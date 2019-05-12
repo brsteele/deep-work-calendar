@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DailyCalendar: React.FunctionComponent = () => {
-  return <p>Here is the daily calendar</p>;
+  return <p>The deep work calendar is coming soon!!!</p>;
 };
 
 export default DailyCalendar;

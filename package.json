@@ -18,6 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:once": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "deploy": "aws s3 cp build/ s3://deep-work-calendar.com --recursive"
   },

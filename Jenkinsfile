@@ -2,6 +2,8 @@ pipeline {
     stages {
         stage('install') {
             steps {
+                echo 'Checking out file'
+                checkout scm
                 echo 'Installing node modules'
                 sh 'npm --version'
                 sh 'npm i'

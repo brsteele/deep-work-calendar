@@ -1,4 +1,5 @@
 pipeline {
+    agent any
     stages {
         stage('install') {
             steps {
@@ -10,13 +11,17 @@ pipeline {
             }
         }
         stage('test') {
-            echo 'Running unit tests'
-            sh 'npm run test:once'
-            echo 'Tests were successful'
+            steps {
+                echo 'Running unit tests'
+                sh 'npm run test:once'
+                echo 'Tests were successful'
+            }
         }
         stage('build') {
-            sh 'npm run deploy'
-            sh 'aws cloudfront create-invalidation --invalidation-batch file://invbatch.json --distribution-id E1SXH4V0NW360V'
+            steps {
+                sh 'npm run deploy'
+                sh 'aws cloudfront create-invalidation --invalidation-batch file://invbatch.json --distribution-id E1SXH4V0NW360V'
+            }
         }
     }
 }

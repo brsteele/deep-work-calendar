@@ -87,13 +87,15 @@ audio {
 .container {
   display: flex;
   position: relative;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
 .timings {
   text-align: right;
   padding-right: 10px;
   width: 100px;
-  height: 100vh;
+  height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -108,7 +110,7 @@ audio {
 }
 
 .days {
-  height: 100vh;
+  height: 1000px;
   width: 620px;
   padding: 0px 10px;
   background-color: #f0f0f0;

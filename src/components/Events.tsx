@@ -7,12 +7,18 @@ const Events: React.FunctionComponent = () => {
     height: 0,
     width: 0
   });
+
+  const useHandleWindowResize = debounce(() => {
+    handleWindowResize(setWindowHeight);
+  }, 100);
+
   const eventsRef: any = React.createRef();
+
   useEffect(() => {
     setWindowHeight(document.body.clientHeight);
-    window.addEventListener('resize', debounce(dumbFunc, 100));
+    window.addEventListener('resize', useHandleWindowResize);
     return () => {
-      window.removeEventListener('resize', dumbFunc);
+      window.removeEventListener('resize', useHandleWindowResize);
     };
   }, []);
 
@@ -21,11 +27,6 @@ const Events: React.FunctionComponent = () => {
     setEventsContainerDimensions({ height, width });
   }, [windowHeight]);
 
-  const dumbFunc = () => {
-    const height = document.body.clientHeight;
-    setWindowHeight(height);
-  };
-
   return (
     <div ref={eventsRef} className="days" id="events">
       <div className="event">
@@ -33,6 +34,10 @@ const Events: React.FunctionComponent = () => {
       </div>
     </div>
   );
+};
+
+const handleWindowResize = (callBack: (height: number) => void) => {
+  callBack(document.body.clientHeight);
 };
 
 export default Events;

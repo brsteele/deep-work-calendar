@@ -85,16 +85,15 @@ audio {
 }
 
 .container {
-  height: 720px;
-  width: 900px;
-  display: inline-flex;
+  display: flex;
+  position: relative;
 }
 
 .timings {
   text-align: right;
   padding-right: 10px;
   width: 100px;
-  height: 720px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -109,7 +108,7 @@ audio {
 }
 
 .days {
-  height: 720px;
+  height: 100vh;
   width: 620px;
   padding: 0px 10px;
   background-color: #f0f0f0;
@@ -136,4 +135,13 @@ audio {
 .event .title {
   color: #57b986;
   font-size: 200%;
+}
+
+.timer-line {
+  position: fixed;
+  height: 1px;
+  width: 100%;
+  max-width: 720px;
+  background-color: red;
+  top: 300px;
 }

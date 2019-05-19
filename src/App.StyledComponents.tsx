@@ -9,4 +9,8 @@ export const AppContainer = styled.div`
 export const CalendarContainer = styled.div`
   width: 100%;
   background-color: rgba(75, 75, 75, 1);
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 100vh;
 `;

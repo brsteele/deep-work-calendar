@@ -91,8 +91,15 @@ audio {
   overflow-y: scroll;
 }
 
+.calendarContainer {
+  display: flex;
+  height: 1000px;
+  position: relative;
+}
+
 .timings {
   text-align: right;
+  position: relative;
   padding-right: 10px;
   width: 100px;
   height: 1000px;
@@ -140,10 +147,10 @@ audio {
 }
 
 .timer-line {
-  position: fixed;
+  position: absolute;
   height: 1px;
   width: 100%;
   max-width: 720px;
   background-color: red;
-  top: 300px;
+  top: 91%;
 }

@@ -2,33 +2,22 @@ import React, { useState, useEffect } from 'react';
 import { debounce } from 'lodash';
 
 const Events: React.FunctionComponent = () => {
+  console.log('foo');
   const [windowWidth, setWindowWidth] = useState(0);
-  const [eventsContainerDimensions, setEventsContainerDimensions] = useState({
-    height: 0,
-    width: 0
-  });
 
-  const useHandleWindowResize = debounce(() => {
+  const ahandleWindowResize = debounce(() => {
     handleWindowResize(setWindowWidth);
-  }, 100);
+  }, 500);
 
   const eventsRef: React.RefObject<HTMLDivElement> = React.createRef();
 
   useEffect(() => {
     setWindowWidth(document.body.clientWidth);
-    window.addEventListener('resize', useHandleWindowResize);
+    window.addEventListener('resize', ahandleWindowResize);
     return () => {
-      window.removeEventListener('resize', useHandleWindowResize);
+      window.removeEventListener('resize', ahandleWindowResize);
     };
   }, []);
-
-  useEffect(() => {
-    const {
-      height,
-      width
-    } = (eventsRef.current as HTMLDivElement).getBoundingClientRect();
-    setEventsContainerDimensions({ height, width });
-  }, [windowWidth]);
 
   return (
     <div ref={eventsRef} className="days" id="events">

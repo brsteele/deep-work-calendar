@@ -1,14 +1,21 @@
 import React from 'react';
 import * as sc from './App.StyledComponents';
-import DailyCalendar from './components/DailyCalendar';
+import Reset from './styledComponents/reset';
+import Event from './components/Event';
 
 const App: React.FC = () => {
   return (
     <sc.AppContainer>
-      <sc.Reset />
-      <sc.CalendarContainer>
-        <DailyCalendar />
-      </sc.CalendarContainer>
+      <Reset />
+      <sc.Fonts />
+      <Event
+        type={'focus'}
+        handleClick={() => console.log('something something')}
+        eventInfo={{
+          title: 'Focused Event',
+          description: 'some description'
+        }}
+      />
     </sc.AppContainer>
   );
 };

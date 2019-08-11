@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { debounce } from 'lodash';
-import Event from './Event';
 
 const Events: React.FunctionComponent = () => {
   const [windowWidth, setWindowWidth] = useState(0);
@@ -22,11 +21,7 @@ const Events: React.FunctionComponent = () => {
     };
   }, [debouncedHandleWindowResize]);
 
-  return (
-    <div ref={eventsRef} className="days" id="events">
-      <Event windowWidth={windowWidth} />
-    </div>
-  );
+  return <div ref={eventsRef} className="days" id="events" />;
 };
 
 const handleWindowResize = (callBack: (height: number) => void) => {

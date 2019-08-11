@@ -1,7 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
-export const Reset = createGlobalStyle`${reset}`;
+export const Reset = createGlobalStyle`
+  ${reset}`;
+
+export const Fonts = createGlobalStyle`
+  body {
+    font-family: 'Avenir', 'Arial', sans-serif;
+  }
+`;
+
 export const AppContainer = styled.div`
   background: rgba(45, 45, 45, 1);
   min-height: 100vh;

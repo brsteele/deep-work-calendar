@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e # Exit as soon as any line in the bash script fails
+
+DOCKER_RUN="docker run -p 3000:3000 -d --name dwc deep-work-calendar"
+
+eval $DOCKER_RUN 
+
+true # Exit happily if all went well
